@@ -155,5 +155,47 @@ async function updateEmployeeRolePrompt() {
     console.log('Employee role updated.');
   }
   
+//   main function to start the application:
+async function start() {
+    console.log('Employee Database Manager\n');
+  
+    let action;
+  
+    while (action !== 'Exit') {
+      ({ action } = await promptAction());
+  
+      switch (action) {
+        case 'View all departments':
+          await viewAllDepartments();
+          break;
+        case 'View all roles':
+          await viewAllRoles();
+          break;
+        case 'View all employees':
+          await viewAllEmployees();
+          break;
+        case 'Add a department':
+          await addDepartmentPrompt();
+          break;
+        case 'Add a role':
+          await addRolePrompt();
+          break;
+        case 'Add an employee':
+          await addEmployeePrompt();
+          break;
+        case 'Update an employee role':
+          await updateEmployeeRolePrompt();
+          break;
+      }
+  
+      console.log();
+    }
+  
+    console.log('Goodbye!');
+    process.exit();
+  }
+
+//   Call the start() function to start the application:
+start();
 
   
