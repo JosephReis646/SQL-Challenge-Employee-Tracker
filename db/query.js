@@ -25,3 +25,34 @@ function getAllEmployees() {
     `);
   }
   
+//   function to add a new department to the department table:
+function addDepartment(name) {
+    return connection.promise().query('INSERT INTO department SET ?', { name });
+  }
+
+//   function to add a new role to the role table:
+function addRole(title, salary, department_id) {
+    return connection.promise().query('INSERT INTO role SET ?', { title, salary, department_id });
+  }
+
+//   function to add a new employee to the employee table:
+function addEmployee(first_name, last_name, role_id, manager_id) {
+    return connection.promise().query('INSERT INTO employee SET ?', { first_name, last_name, role_id, manager_id });
+  }
+
+//   function to update an employee's role in the employee table:
+function updateEmployeeRole(employee_id, role_id) {
+    return connection.promise().query('UPDATE employee SET role_id = ? WHERE id = ?', [role_id, employee_id]);
+  }
+
+//   Export all of the functions so they can be used in other files:
+module.exports = {
+    getAllDepartments,
+    getAllRoles,
+    getAllEmployees,
+    addDepartment,
+    addRole,
+    addEmployee,
+    updateEmployeeRole
+  };
+  
