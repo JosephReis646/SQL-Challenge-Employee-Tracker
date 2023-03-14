@@ -5,4 +5,12 @@ const connection = require('./connection');
 function getAllDepartments() {
     return connection.promise().query('SELECT * FROM department');
   }
+//   function to retrieve all roles from the role table, including the department each role belongs to:
+function getAllRoles() {
+    return connection.promise().query(`
+      SELECT role.id, role.title, role.salary, department.name AS department
+      FROM role
+      INNER JOIN department ON role.department_id = department.id
+    `);
+  }
   
