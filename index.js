@@ -36,4 +36,24 @@ function promptAction() {
     ]);
   }
   
+//   function to handle the "View all departments" action:
+async function viewAllDepartments() {
+    const [rows] = await getAllDepartments();
+    console.table(rows);
+  }
+
+//   function to handle the "View all roles" action:
+async function viewAllRoles() {
+    const [rows] = await getAllRoles();
+    console.table(rows);
+  }
+
+//   function to handle the "View all employees" action:
+async function viewAllEmployees() {
+    const [rows] = await getAllEmployees();
+    console.table(rows);
+  }
+
+//   function to handle the "Add a department" action:
+
   
