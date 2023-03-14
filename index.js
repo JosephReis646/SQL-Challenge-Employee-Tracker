@@ -15,4 +15,25 @@ const {
 //   Import the console.table package:
 const cTable = require('console.table');
 
+// function to prompt the user to choose an action:
+function promptAction() {
+    return inquirer.prompt([
+      {
+        type: 'list',
+        name: 'action',
+        message: 'What would you like to do?',
+        choices: [
+          'View all departments',
+          'View all roles',
+          'View all employees',
+          'Add a department',
+          'Add a role',
+          'Add an employee',
+          'Update an employee role',
+          'Exit'
+        ]
+      }
+    ]);
+  }
+  
   
